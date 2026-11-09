@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ScrollText } from "lucide-react";
+import { ArrowRight, Network } from "lucide-react";
 
 export default function DashboardPage() {
   return (
@@ -17,15 +17,15 @@ export default function DashboardPage() {
       </header>
 
       <Link
-        href="/ref/cheat"
+        href="/learn/sd-fundamentals"
         className="group flex items-center gap-4 rounded-2xl border border-border bg-surface p-5 transition hover:border-brand/40 hover:shadow-sm sm:max-w-md"
       >
-        <span className="grid h-11 w-11 place-items-center rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400">
-          <ScrollText className="h-5 w-5" />
+        <span className="grid h-11 w-11 place-items-center rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400">
+          <Network className="h-5 w-5" />
         </span>
         <span className="flex-1">
-          <span className="block font-display font-bold">Cheat Sheet</span>
-          <span className="block text-[13.5px] text-muted">One-page summaries to revise from.</span>
+          <span className="block font-display font-bold">System Design Fundamentals</span>
+          <span className="block text-[13.5px] text-muted">The building blocks every design is made of.</span>
         </span>
         <ArrowRight className="h-4 w-4 text-muted transition group-hover:translate-x-0.5 group-hover:text-text" />
       </Link>

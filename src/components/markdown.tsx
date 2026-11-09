@@ -2,7 +2,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import type { ReactNode } from "react";
-import { slugify } from "@/lib/reference-shared";
+import { slugify } from "@/lib/content-shared";
 import { Mermaid } from "./mermaid";
 
 function textOf(node: ReactNode): string {

@@ -43,6 +43,23 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
                 const active =
                   item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
                 const Icon = item.icon;
+                if (item.soon) {
+                  return (
+                    <li key={item.href}>
+                      <span
+                        aria-disabled="true"
+                        title="Not built yet"
+                        className="flex cursor-default items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-[13.5px] text-muted/60"
+                      >
+                        <Icon className="h-4 w-4 shrink-0" />
+                        <span className="flex-1 leading-snug">{item.label}</span>
+                        <span className="rounded border border-border px-1.5 text-[10px] font-semibold tracking-wide uppercase">
+                          soon
+                        </span>
+                      </span>
+                    </li>
+                  );
+                }
                 return (
                   <li key={item.href}>
                     <Link
@@ -56,7 +73,7 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
                       )}
                     >
                       <Icon className="h-4 w-4 shrink-0" />
-                      <span className="flex-1 truncate">{item.label}</span>
+                      <span className="flex-1 leading-snug">{item.label}</span>
                       {item.count !== undefined && (
                         <span className="text-[11px] tabular-nums text-muted">{item.count}</span>
                       )}
