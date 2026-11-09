@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Plus } from "lucide-react";
-import { ComingSoon } from "@/components/coming-soon";
 import { REF_KINDS, isRefKind, listRefItems } from "@/lib/reference";
 import { RefList } from "./ref-list";
 
@@ -12,10 +11,8 @@ export async function generateMetadata({ params }: { params: Promise<{ kind: str
 
 export default async function RefKindPage({ params }: { params: Promise<{ kind: string }> }) {
   const { kind } = await params;
-  if (!isRefKind(kind)) notFound();
+  if (!isRefKind(kind) || !REF_KINDS[kind].enabled) notFound();
   const meta = REF_KINDS[kind];
-
-  if (!meta.enabled) return <ComingSoon title={meta.label} note={meta.blurb} />;
 
   const { items, error } = await listRefItems(kind);
 

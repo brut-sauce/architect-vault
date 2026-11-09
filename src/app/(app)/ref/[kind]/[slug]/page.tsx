@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Params) {
 
 export default async function RefItemPage({ params }: Params) {
   const { kind, slug } = await params;
-  if (!isRefKind(kind)) notFound();
+  if (!isRefKind(kind) || !REF_KINDS[kind].enabled) notFound();
   const item = await getRefItem(kind, slug);
   if (!item) notFound();
 
