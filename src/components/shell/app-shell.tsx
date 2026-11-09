@@ -26,7 +26,7 @@ export function AppShell({
   return (
     <div className="min-h-dvh">
       {/* Desktop sidebar */}
-      <aside className="fixed inset-y-0 left-0 z-30 hidden w-[var(--sidebar-w)] border-r border-border bg-surface lg:block">
+      <aside className="no-print fixed inset-y-0 left-0 z-30 hidden w-[var(--sidebar-w)] border-r border-border bg-surface lg:block">
         <Sidebar />
       </aside>
 
@@ -51,9 +51,9 @@ export function AppShell({
         </div>
       )}
 
-      <div className="lg:pl-[var(--sidebar-w)]">
+      <div className="print-plain lg:pl-[var(--sidebar-w)]">
         {/* Top bar */}
-        <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-border bg-bg/85 px-4 backdrop-blur lg:px-8">
+        <header className="no-print sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-border bg-bg/85 px-4 backdrop-blur lg:px-8">
           <button
             aria-label="Open menu"
             onClick={() => setDrawer(true)}
@@ -83,11 +83,11 @@ export function AppShell({
           </div>
         </header>
 
-        <main className="mx-auto w-full max-w-6xl px-4 pt-8 pb-28 lg:px-8 lg:pb-12">{children}</main>
+        <main className="print-plain mx-auto w-full max-w-6xl px-4 pt-8 pb-28 lg:px-8 lg:pb-12">{children}</main>
       </div>
 
       {/* Mobile bottom bar */}
-      <nav className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-5 border-t border-border bg-surface pb-[env(safe-area-inset-bottom)] lg:hidden">
+      <nav className="no-print fixed inset-x-0 bottom-0 z-30 grid grid-cols-5 border-t border-border bg-surface pb-[env(safe-area-inset-bottom)] lg:hidden">
         {MOBILE_TABS.map((t) => {
           const active = t.href === "/" ? pathname === "/" : pathname.startsWith(t.href);
           const Icon = t.icon;

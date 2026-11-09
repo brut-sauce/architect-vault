@@ -15,7 +15,7 @@ Without the env vars the app still runs, with sign-in turned off.
 
 ## Database
 
-Run `supabase/migrations/0001_init.sql` once in Supabase → SQL Editor.
+Run each file in `supabase/migrations/` once, in order, in Supabase → SQL Editor.
 It creates `profiles` (with RLS and a sign-up trigger) and the `health()` function.
 
 ## Structure

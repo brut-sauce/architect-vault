@@ -8,6 +8,10 @@ import {
   Layers,
   ListChecks,
   BarChart3,
+  ScrollText,
+  Shapes,
+  GitCompare,
+  TriangleAlert,
   type LucideIcon,
 } from "lucide-react";
 
@@ -58,6 +62,16 @@ export const NAV: NavGroup[] = [
     ],
   },
   {
+    label: "Reference",
+    tone: "text-rose-600 dark:text-rose-400",
+    items: [
+      { label: "Cheat Sheet", href: "/ref/cheat", icon: ScrollText },
+      { label: "Visual Library", href: "/ref/visual", icon: Shapes },
+      { label: "X vs Y", href: "/ref/vs", icon: GitCompare },
+      { label: "Anti-patterns", href: "/ref/anti", icon: TriangleAlert },
+    ],
+  },
+  {
     label: "You",
     tone: "text-emerald-600 dark:text-emerald-400",
     items: [{ label: "Progress", href: "/progress", icon: BarChart3 }],
@@ -77,6 +91,11 @@ export function titleFor(pathname: string): string {
   for (const g of NAV) {
     for (const i of g.items) {
       if (i.href === pathname) return i.label;
+    }
+  }
+  for (const g of NAV) {
+    for (const i of g.items) {
+      if (i.href !== "/" && pathname.startsWith(i.href + "/")) return i.label;
     }
   }
   if (pathname.startsWith("/m/")) return "Module";
