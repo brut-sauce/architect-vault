@@ -46,5 +46,6 @@ export function titleFor(pathname: string): string {
       if (i.href !== "/" && pathname.startsWith(i.href + "/")) return i.label;
     }
   }
+  if (pathname === "/account") return "Account";
   return "Architect Vault";
 }

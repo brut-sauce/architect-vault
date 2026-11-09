@@ -21,7 +21,7 @@ export default async function LoginPage({
         </div>
         <h1 className="mt-6 font-display text-2xl font-extrabold">Sign in</h1>
         <p className="mt-1.5 text-[14px] text-muted">
-          Enter your email and we will send you a sign-in link. No password needed.
+          Sign in with your password, or get a one-time link by email.
         </p>
         {error && (
           <p className="mt-4 rounded-lg bg-red-500/10 px-3 py-2 text-[13px] text-red-600">

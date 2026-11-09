@@ -1,6 +1,7 @@
 "use client";
 
-import { LogOut } from "lucide-react";
+import Link from "next/link";
+import { KeyRound, LogOut } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 function initials(email: string | null) {
@@ -37,6 +38,15 @@ export function UserMenu({ email }: { email: string | null }) {
           <p className="truncate px-2.5 py-2 text-[12px] text-muted">
             {email ?? "Not signed in (Supabase not configured)"}
           </p>
+          {email && (
+            <Link
+              href="/account"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-[13px] hover:bg-surface-2"
+            >
+              <KeyRound className="h-4 w-4" /> Account & password
+            </Link>
+          )}
           {email && (
             <form action="/auth/signout" method="post">
               <button
